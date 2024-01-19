@@ -9,20 +9,20 @@
     <thead>
     <tr>
         <th>
+            ID
+        </th>
+        <th>
             Name
         </th>
         <th>
             Description
         </th>
-        <th>
-            Address
-        </th>
     </tr>
     </thead>
     <tr th:each="event : ${events}">
-        <td th:text="${event.getKey()}"></td>
-        <td th:text="${event.getValue()}"></td>
-        <td th:replace="fragments :: address"></td>
+        <td th:text="${event.getId()}"></td>
+        <td th:text="${event.getName()}"></td>
+        <td th:text="${event.getDescription()}"></td>
     </tr>
 </table>
 
