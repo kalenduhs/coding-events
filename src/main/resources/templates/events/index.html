@@ -12,6 +12,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Contact Email</th>
+        <th>Location</th>
     </tr>
     </thead>
     <tr th:each="event : ${events}">
@@ -19,6 +20,7 @@
         <td th:text="${event.getName()}"></td>
         <td th:text="${event.getDescription()}"></td>
         <td th:text="${event.getContactEmail}"></td>
+        <td th:text="${event.getLocation}"></td>
     </tr>
 </table>
 

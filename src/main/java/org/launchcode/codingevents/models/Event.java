@@ -1,8 +1,6 @@
 package org.launchcode.codingevents.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
@@ -17,6 +15,14 @@ public class Event {
     @NotBlank
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
+    @NotBlank(message = "Location cannot be left blank")
+    private String location;
+
+    @AssertTrue(message = "You must register or else")
+    private boolean mustRegister;
+
+    @Positive(message="Number of attendees must be one or more.")
+    private int numberOfAttendees;
     private int id;
     private static int nextId = 1;
 
@@ -53,6 +59,30 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public boolean isMustRegister() {
+        return mustRegister;
+    }
+
+    public void setMustRegister(boolean mustRegister) {
+        this.mustRegister = mustRegister;
+    }
+
+    public int getNumberOfAttendees() {
+        return numberOfAttendees;
+    }
+
+    public void setNumberOfAttendees(int numberOfAttendees) {
+        this.numberOfAttendees = numberOfAttendees;
     }
 
     public int getId() {
