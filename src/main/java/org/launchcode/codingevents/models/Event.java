@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.models;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -13,12 +14,15 @@ public class Event {
 
     @Size(max = 500, message = "Description is too long!")
     private String description;
+    @Email(message = "Invalid email. Try again.")
+    private String contactEmail;
     private int id;
     private static int nextId = 1;
 
-    public Event(String name, String description) {
+    public Event(String name, String description, String contactEmail) {
         this.name = name;
         this.description = description;
+        this.contactEmail = contactEmail;
         this.id = nextId;
         nextId++;
     }
@@ -37,6 +41,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
     public int getId() {
